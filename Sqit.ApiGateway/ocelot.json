@@ -1,0 +1,47 @@
+﻿{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/customers/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          //"Host": "sqit-service1-api",
+          //"Port": 80,
+          "Host": "localhost",
+          "Port": 3001
+        }
+      ],
+      //"UpstreamPathTemplate": "/service-1/valores",
+      "UpstreamPathTemplate": "/customers/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "Key": "customer"
+    },
+    {
+      "DownstreamPathTemplate": "/api/orders/customer/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          //"Host": "sqit-service2-api",
+          //"Port": 80
+          "Host": "localhost",
+          "Port": 3002
+
+        }
+      ],
+      "UpstreamPathTemplate": "/orders/customer/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "Key": "orders-by-customer"
+    }
+  ],
+  "Aggregates": [
+    {
+      "ReRouteKeys": [
+        "customer",
+        "orders-by-customer"
+      ],
+      "UpstreamPathTemplate": "/api/orders-by-customer/{id}",
+      "Aggregator": "CustomerWithOrdersAggregator"
+    }
+  ],
+  "GlobalConfiguration": {}
+}

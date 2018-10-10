@@ -1,0 +1,32 @@
+version: '3.4'
+
+services:
+  sqit.service1.api:
+    image: ${DOCKER_REGISTRY}sqitservice1api
+    container_name: sqit-service1-api
+    expose:
+      - 80
+    ports:
+      - 5051:80
+    build:
+      context: .
+      dockerfile: Sqit.Service1.Api/Dockerfile
+
+  sqit.service2.api:
+    image: ${DOCKER_REGISTRY}sqitservice2api
+    container_name: sqit-service2-api
+    expose:
+      - 80
+    ports:
+      - 5052:80
+    build:
+      context: .
+      dockerfile: Sqit.Service2.Api/Dockerfile
+
+  sqit.apigateway:
+    image: ${DOCKER_REGISTRY}sqitapigateway
+    container_name: sqit-apigateway
+    build:
+      context: .
+      dockerfile: Sqit.ApiGateway/Dockerfile
+

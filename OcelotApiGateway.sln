@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{BBC5CB4F-DC29-40D3-92EE-F32D93AED40F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{5DFA51CC-9678-40E0-AFCB-7AF5F375E1B4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqit.ApiGateway", "Sqit.ApiGateway\Sqit.ApiGateway.csproj", "{59468BDD-6359-43B0-A79D-260DBB6221B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "customer-api", "customer-api", "{C6A93F1B-B084-4EB0-8C0E-B98E3C6AA6E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "order-api", "order-api", "{74B185A3-AE79-4516-AE9F-0A2292973275}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqit.CustomerApi", "Services\customer-api\Sqit.CustomerApi.csproj", "{35A69F82-FD7A-4E36-AE20-21EADC193C43}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqit.OrderApi", "Services\order-api\Sqit.OrderApi.csproj", "{87834C22-6A8C-4FC5-9E80-3A05A876C57F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBC5CB4F-DC29-40D3-92EE-F32D93AED40F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBC5CB4F-DC29-40D3-92EE-F32D93AED40F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBC5CB4F-DC29-40D3-92EE-F32D93AED40F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBC5CB4F-DC29-40D3-92EE-F32D93AED40F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59468BDD-6359-43B0-A79D-260DBB6221B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59468BDD-6359-43B0-A79D-260DBB6221B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59468BDD-6359-43B0-A79D-260DBB6221B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59468BDD-6359-43B0-A79D-260DBB6221B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35A69F82-FD7A-4E36-AE20-21EADC193C43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35A69F82-FD7A-4E36-AE20-21EADC193C43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35A69F82-FD7A-4E36-AE20-21EADC193C43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35A69F82-FD7A-4E36-AE20-21EADC193C43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87834C22-6A8C-4FC5-9E80-3A05A876C57F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87834C22-6A8C-4FC5-9E80-3A05A876C57F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87834C22-6A8C-4FC5-9E80-3A05A876C57F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87834C22-6A8C-4FC5-9E80-3A05A876C57F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C6A93F1B-B084-4EB0-8C0E-B98E3C6AA6E5} = {5DFA51CC-9678-40E0-AFCB-7AF5F375E1B4}
+		{74B185A3-AE79-4516-AE9F-0A2292973275} = {5DFA51CC-9678-40E0-AFCB-7AF5F375E1B4}
+		{35A69F82-FD7A-4E36-AE20-21EADC193C43} = {C6A93F1B-B084-4EB0-8C0E-B98E3C6AA6E5}
+		{87834C22-6A8C-4FC5-9E80-3A05A876C57F} = {74B185A3-AE79-4516-AE9F-0A2292973275}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {52282297-7EE9-47F7-B05B-FF27EB9B5A7D}
+	EndGlobalSection
+EndGlobal
