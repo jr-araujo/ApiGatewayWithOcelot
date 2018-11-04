@@ -1,20 +1,36 @@
 FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
 WORKDIR /app
-RUN apt-get update && apt-get install -y iputils-ping
 EXPOSE 80
 
 FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
-COPY Sqit.Service1.Api/Sqit.Service1.Api.csproj Sqit.Service1.Api/
-RUN dotnet restore Sqit.Service1.Api/Sqit.Service1.Api.csproj
+COPY ["Services/customer-api/Sqit.CustomerApi.csproj", "Services/customer-api/"]
+RUN dotnet restore "Services/customer-api/Sqit.CustomerApi.csproj"
 COPY . .
-WORKDIR /src/Sqit.Service1.Api
-RUN dotnet build Sqit.Service1.Api.csproj -c Release -o /app
+WORKDIR "/src/Services/customer-api"
+RUN dotnet build "Sqit.CustomerApi.csproj" -c Release -o /app
 
 FROM build AS publish
-RUN dotnet publish Sqit.Service1.Api.csproj -c Release -o /app
+RUN dotnet publish "Sqit.CustomerApi.csproj" -c Release -o /app
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "Sqit.Service1.Api.dll"]
+ENTRYPOINT ["dotnet", "Sqit.CustomerApi.dll"]
+
+#FROM microsoft/dotnet AS build-env
+#WORKDIR /app
+#
+## copy csproj and restore as distinct layers
+#COPY *Services/customer-api/*.csproj ./
+#RUN dotnet restore
+#
+## copy everything else and build
+#COPY . ./
+#RUN dotnet publish Sqit.CustomerApi.csproj -o out
+#
+## build runtime image
+#FROM microsoft/dotnet:2.1-aspnetcore-runtime
+#WORKDIR /app
+#COPY --from=build-env /app/out .
+#ENTRYPOINT ["dotnet", "Sqit.CustomerApi.dll"]
